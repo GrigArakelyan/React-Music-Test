@@ -1,0 +1,25 @@
+.inputDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(238, 238, 238);
+    height: 35px;
+    border: 1px;
+    border-radius: 8px;
+    width: 100%;
+    .icon{
+        width: 15px;
+        height: 15px;
+        margin: 0 0 0 10px;
+        opacity: 50%;
+    }
+    .input{
+        background-color: rgb(238, 238, 238);
+        border: none;
+        font-size: 15px;
+        width: calc(100% - 30px);
+        height: calc(100% - 4px);
+        border-radius: 8px;
+        outline: none;
+    }
+}
