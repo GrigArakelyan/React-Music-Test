@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import closeIcon from "../../icons/close.png"
+import "./modal.css"
+import MusicUploadForm from '../MusicUploadForm/MusicUploadForm';
+
 
 const style = {
   position: 'absolute',
@@ -16,36 +19,28 @@ const style = {
   p: 4,
 };
 
-const BasicModal = ({openModal}) => {
-    // const inputRef = useRef()
-    // const addMusic = () => {
-    //     inputRef.current.click();
-    // }
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+const BasicModal = ({handleClose, open}) => {
+
 
   return (
-    <div>
-        <Button onClick={handleOpen}>Open Modal</Button>
+    <div >
       <Modal
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Added new music
-          </Typography>
-            <input type='text' name='songName' placeholder='Song Name'/>
-            <input type='text' name='artistName' placeholder='Artist Name'/>
-            {/* <input className="hidden" type="file" ref={inputRef} accept="mp3"/>  */}
+        <Box sx={style} className="closeBox">
+           <Button className='closeButton'onClick={handleClose}>
+             <img src={closeIcon} className="icon" alt="close" />  
+           </Button>
+           <MusicUploadForm handleClose={handleClose}/>
         </Box>
       </Modal>
     </div>
   );
 }
+
 
 export default BasicModal

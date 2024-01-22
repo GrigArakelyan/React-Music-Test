@@ -6,15 +6,20 @@ const MusicDataReducer = createSlice({
     initialState: initialMusicData,
     reducers: {
       addMusic(state, {payload}){
-        state.data = [...state, {
+        console.log("payload:", payload) /////
+        state.data = [...state.data, {
+          id: payload.id,
           songName: payload.songName,
           artistName: payload.artistName,
-          trackNumber: 1,
-          file: payload.fileName
+          trackNumber: payload.trackNumber,
+          file: payload.file
         }]
+      },
+      deleteMusic(state, {payload}){
+        state.data = state.data.filter(music =>  music.id !== payload.id)
       }
     },
   });
   
   export default MusicDataReducer.reducer;
-  export const {addMusic} = MusicDataReducer.actions;
+  export const {addMusic, deleteMusic} = MusicDataReducer.actions;
