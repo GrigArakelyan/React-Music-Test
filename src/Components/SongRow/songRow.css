@@ -12,7 +12,7 @@
     width: 100%;
     height: 40px;
     .divPlay{
-        width: calc(6% - 1px);
+        width: 60px;
         padding: 5px 0;
         height: 100%;
         margin-right: 1px;
@@ -20,7 +20,8 @@
         align-items: center;
         justify-content: space-around;
         .icon{
-            width: 23%;
+            width: 15px;
+            height: 15px;
             opacity: 50%;
             margin: 0 5px;
         }
@@ -33,16 +34,14 @@
         padding: 5px 15px;
         margin: 0 1px;
         width: calc(31% - 2px);
-        height: 100%;
         font-size: 18px;
         font-weight: 500;
         text-align: start;
         line-height: 35px;
     }
     .divNum{
-        padding: 5px 15px;
-        width: calc(7% - 2px);
-        height: 100%;
+        padding: 5px 10px;
+        width: 50px;
         font-size: 18px;
         font-weight: 500;
         margin: 0 1px;
@@ -52,19 +51,102 @@
     .divIcons{
         width: calc(25% - 1px);
         padding: 5px 0;
-        height: 100%;
         margin-left: 1px;
         display: flex;
         justify-content: space-around;
         align-items: center;
         .icon{
-            width: 7%;
+            width: 15px;
+            height: 15px;
             opacity: 50%;
             margin: 0 5px;
         }
         .icon:hover{
             opacity: 100%;
             cursor: pointer;
+        }
+    }
+}
+
+
+@media screen and (max-width: 700px){
+    .songRow{
+        .divPlay{
+            width: 40px;
+            .icon{
+            }
+        }
+        .divName{
+            padding: 5px 10px;
+            font-size: 15px;
+            line-height: 20px;
+        }
+        .divNum{
+            padding: 5px;
+            width: 38px;
+            font-size: 15px;
+            line-height: 20px;
+        }
+        .divIcons{
+            .icon{
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 520px){
+    .songRow{
+        .divPlay{
+            .icon{
+                width: 12px;
+                height: 12px;
+                margin: 0 3px;
+            }
+        }
+        .divName{
+            font-size: 13px;
+            padding: 5px 7px;
+        }
+        .divNum{
+            width: 30px;
+            font-size: 13px;
+            padding: 5px;
+        }
+        .divIcons{
+            .icon{
+                width: 12px;
+                height: 12px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px){
+    .songRow{
+        height: 60px;
+        .divIcons{
+            flex-wrap: wrap;
+            .icon{
+                width: 15px;
+                height: 15px;
+                margin: 5px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 310px){
+    .songRow{
+        height: 60px;
+        .divIcons{
+            flex-wrap: wrap;
+            .icon{
+                width: 12px;
+                height: 12px;
+                margin: 4px;
+            }
         }
     }
 }

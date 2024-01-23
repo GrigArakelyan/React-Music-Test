@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux"
 import SongRow from "../SongRow/SongRow"
-import "./songList.css"
 import { selectMusicData } from "../../store/selectores/musicData.js/musicData"
 import SongListHeader from "../SongListHeader/SongListHeader"
 import Loading from "../Loading/Loading"

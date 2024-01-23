@@ -12,7 +12,8 @@ const MusicDataReducer = createSlice({
           songName: payload.songName,
           artistName: payload.artistName,
           trackNumber: payload.trackNumber,
-          file: payload.file
+          file: payload.file,
+          music: payload.music
         }]
       },
       deleteMusic(state, {payload}){

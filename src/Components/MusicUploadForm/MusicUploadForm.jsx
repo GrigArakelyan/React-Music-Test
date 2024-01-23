@@ -8,24 +8,25 @@ const MusicUploadForm = ({handleClose}) => {
     const dispatch = useDispatch()
     const [songName, setSongName] = useState('')
     const [artistName, setArtistName] = useState('')
-    const [audio, setAudio] = useState(null);
+    const [audioFile, setAudioFile] = useState(null);
     const fileRef = useRef()
 
     const openFiles = () => {
         fileRef.current.click()
       }
       const uploadAudio = (e) => {
-        setAudio(e.target.files[0])
+        setAudioFile(e.target.files[0])
       }
     
       const addedNewMusic = () => {
-        if(songName && artistName && audio){
+        if(songName && artistName && audioFile){
           const newMusicData = {
             id: Math.random(),
             songName,
             artistName,
             trackNumber: 1,
-            file: audio
+            file: audioFile,
+            music: ""
           }
           dispatch(addMusic(newMusicData))
           console.log("New Music Data:", newMusicData)  /////
@@ -47,7 +48,7 @@ const MusicUploadForm = ({handleClose}) => {
                     <input hidden type="file" name='file' accept="audio/*, .mp3, .wav" className="addButton" ref={fileRef}
                         onChange={uploadAudio}/> 
                 </Button>
-                {songName && artistName && audio && 
+                {songName && artistName && audioFile && 
                 <Button className='button' onClick={addedNewMusic}>Add music</Button>}
             </div>
         </div>

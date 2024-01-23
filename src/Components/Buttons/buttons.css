@@ -1,6 +1,6 @@
 .buttonDiv{
-    width: 45%;
     height: 35px;
+    margin: 0 10px;
     .button{
         display: flex;
         align-items: center;
@@ -10,6 +10,7 @@
         height: 100%;
         border-radius: 8px;
         border-color: gray;
+        cursor: pointer;
         .text{
             font-size: 15px;
             text-align: center;
@@ -33,5 +34,21 @@
         }
     }
 
+}
+
+@media screen and (max-width: 600px){
+    .buttonDiv{
+        margin: 0 0 0 7px;
+        .button{
+            .text{
+                font-size: 11px;
+                margin-right: 7px;
+            }
+            .icon{
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
 }
 

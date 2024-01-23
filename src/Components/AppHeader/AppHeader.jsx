@@ -17,7 +17,9 @@ const AppHeader = () => {
             <div className="flex">
                 <PlayAllButton />
                 <AddAllButton addButtonClick={handleOpen}/>
+                <div className="hidden">
                 <BasicModal handleClose={handleClose} open={open} handleOpen={handleOpen}/>
+                </div>
             </div>
             <div className="flex">
                 <TruckNumButton />

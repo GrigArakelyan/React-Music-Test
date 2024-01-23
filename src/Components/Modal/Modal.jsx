@@ -7,19 +7,6 @@ import "./modal.css"
 import MusicUploadForm from '../MusicUploadForm/MusicUploadForm';
 
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 700,
-  bgcolor: 'background.paper',
-  border: 'none',
-  boxShadow: 24,
-  p: 4,
-};
-
-
 const BasicModal = ({handleClose, open}) => {
 
 
@@ -31,11 +18,9 @@ const BasicModal = ({handleClose, open}) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style} className="closeBox">
-           <Button className='closeButton'onClick={handleClose}>
-             <img src={closeIcon} className="icon" alt="close" />  
-           </Button>
-           <MusicUploadForm handleClose={handleClose}/>
+        <Box className="closeBox">
+          <img onClick={handleClose} src={closeIcon} className="icon" alt="close" />  
+          <MusicUploadForm handleClose={handleClose}/>
         </Box>
       </Modal>
     </div>

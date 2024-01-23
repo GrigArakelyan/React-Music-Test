@@ -6,7 +6,6 @@
     height: 35px;
     border: 1px;
     border-radius: 8px;
-    width: 52%;
     .icon{
         width: 15px;
         height: 15px;
@@ -23,3 +22,16 @@
         outline: none;
     }
 }
+
+@media screen and (max-width: 600px){
+    .inputDiv{
+        .icon{
+            width: 12px;
+            height: 12px;
+            margin: 0 0 0 7px;
+        }
+        .input{
+            font-size: 12px;
+        }
+    }
+  }
