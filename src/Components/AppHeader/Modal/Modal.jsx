@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import closeIcon from "../../icons/close.png"
+import closeIcon from "../../../icons/close.png"
 import "./modal.css"
-import MusicUploadForm from '../MusicUploadForm/MusicUploadForm';
+import MusicUploadForm from './MusicUploadForm/MusicUploadForm';
 
 
 const BasicModal = ({handleClose, open}) => {

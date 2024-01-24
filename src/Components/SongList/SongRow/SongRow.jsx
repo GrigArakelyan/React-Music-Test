@@ -1,34 +1,28 @@
 import "./songRow.css"
-import playIcon from "../../icons/play.png"
-import pauseIcon from "../../icons/pause.png"
-import menuIcon from "../../icons/menu.png"
-import likeIcon from "../../icons/like.png"
-import checkIcon from "../../icons/check.png"
-import shareIcon from "../../icons/share.png"
-import downIcon from "../../icons/down.png"
-import { useDispatch } from "react-redux"
-import { deleteMusic } from "../../store/slices/musicData/musicDataSlice"
-import { useState } from "react"
-
+import playIcon from "../../../icons/play.png"
+import pauseIcon from "../../../icons/pause.png"
+import menuIcon from "../../../icons/menu.png"
+import likeIcon from "../../../icons/like.png"
+import checkIcon from "../../../icons/check.png"
+import shareIcon from "../../../icons/share.png"
+import downIcon from "../../../icons/down.png"
+import { useRef, useState } from "react"
 
 
 const SongRow = ({musicData}) => {
     const [playing, setPlaying] = useState(false);
-    const music = new Audio(musicData.music);
+    const player = useRef()
 
     const play = () => {
         setPlaying(true)
-        music.play()
+        player.current.src = musicData.file;
+        player.current.play()
     }
     const pause = () => {
         setPlaying(false)
-        music.pause()
+        player.current.pause();
+        player.currentTime = 0;
     }
-    // const dispatch = useDispatch()
-
-    // const removeMusic = () => {
-    //     dispatch(deleteMusic({id: musicData.id}))
-    // }
     
     return (
         <div>
@@ -39,6 +33,9 @@ const SongRow = ({musicData}) => {
                         <img onClick={pause} src={pauseIcon} className="icon" alt="pause"/> : 
                         <img onClick={play} src={playIcon} className="icon" alt="play"/>}
                 </div>
+                <audio ref={player} className="hidden" id={musicData.trackNumber}>
+                    <source src={musicData.file}/>
+                </audio>
                 <div className="divName">{musicData.songName}</div>
                 <div className="divName">{musicData.artistName}</div>
                 <div className="divNum">{musicData.trackNumber}</div>

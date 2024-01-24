@@ -30,6 +30,9 @@
             cursor: pointer;
         }
     }
+    .hidden {
+        display: none;
+    }
     .divName{
         padding: 5px 15px;
         margin: 0 1px;

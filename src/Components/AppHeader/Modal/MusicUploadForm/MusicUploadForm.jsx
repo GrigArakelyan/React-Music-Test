@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux"
 import "./musicForm.css"
 import { useRef, useState } from "react"
 import { Button } from "@mui/material"
-import { addMusic } from "../../store/slices/musicData/musicDataSlice"
+import { addMusic } from "../../../../store/slices/musicData/musicDataSlice"
 
 const MusicUploadForm = ({handleClose}) => {
     const dispatch = useDispatch()
@@ -15,21 +15,19 @@ const MusicUploadForm = ({handleClose}) => {
         fileRef.current.click()
       }
       const uploadAudio = (e) => {
-        setAudioFile(e.target.files[0])
+        const reader = new FileReader();
+        reader.onload = event => setAudioFile(event.target.result)
+        reader.readAsDataURL(e.target.files[0])
       }
     
       const addedNewMusic = () => {
         if(songName && artistName && audioFile){
           const newMusicData = {
-            id: Math.random(),
             songName,
             artistName,
-            trackNumber: 1,
             file: audioFile,
-            music: ""
           }
           dispatch(addMusic(newMusicData))
-          console.log("New Music Data:", newMusicData)  /////
           handleClose()
         }
       }
